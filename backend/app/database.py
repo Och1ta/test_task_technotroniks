@@ -11,6 +11,12 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
 def get_db():
+    """
+    Создает и возвращает объект сессии базы данных.
+    Используется в контексте менеджера (например, в FastAPI).
+
+    :yield: Объект сессии базы данных (Session).
+    """
     db = SessionLocal()
     try:
         yield db
